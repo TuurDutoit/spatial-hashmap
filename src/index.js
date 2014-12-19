@@ -1,21 +1,32 @@
-(function (factory) {
+(function (factory, window) {
     "use strict";
+    
+    var hashmapUrl = {
+        amd: "./hashmap",
+        node: "hashmap"
+    }
     
     if(typeof define === "function" && define.amd) {
-        define(factory);
+        define([hashmapUrl.amd], factory);
+    }
+    else if (typeof exports === "object") {
+        exports.SpatialHashMap = factory( require(hashmapUrl.node).HashMap );
     }
     else {
-        window.SpatialHashMap = factory();
+        window.SpatialHashMap = factory(window.HashMap);
     }
     
     
-}(function() {
+}(function(HashMap) {
     "use strict";
+    
+    
     
     
     function SpatialHashMap(cellSize) {
         this.cellSize = cellSize;
         this.grid = {};
+        this.objects = 
         
         return this;
     }
@@ -118,4 +129,4 @@
     return SpatialHashMap;
     
     
-}));
+}), window);
