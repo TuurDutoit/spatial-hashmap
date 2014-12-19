@@ -1,0 +1,17 @@
+var shm = new SpatialHashMap(cellSize);
+
+shm.add(dim, [obj]);
+    Add an object to the hashmap
+    dim: {x, y, w, h}
+    obj: Obj | undefined: add dim itself
+
+shm.moveBy(vector, obj)
+    Move an object by a given vector
+    vector: {x, y}
+
+shm.move, shm.moveTo (obj, pos)
+    Move an object to a given position
+    pos: {x, y}
+
+shm.remove(obj, [dim])
+    Remove an object
