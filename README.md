@@ -6,6 +6,9 @@ A spatial hashmap implementation in javascript
 Issues and bugs in the [bug tracker](https://github.com/TuurDutoit/spatial-hashmap/issues), please. Pull requests are very welcome!
 
 
+__Note: These docs are out of date. I added a lot of methods and changed quite a few, but I haven't had the time to update the docs. Sorry for that :(. However, I will probably update the docs in the next few days, and in the meantime you can use the source (which is very clear, I think).__
+
+
 
 ## Installation
 
@@ -83,6 +86,9 @@ shm.add (dimensions, object);
 ```
 
 `SHM.add()` takes two arguments: `dimensions` and `object`. `dimensions` is an special object that stores the dimensions of the AABB of the object. `object` is the object to store. It can be of any type and is optional: if it is not provided, the `dimensions` will be stored instead.
+
+
+
 
 
 ### SHM.moveBy | SHM.move (Vector: vector, any: object)

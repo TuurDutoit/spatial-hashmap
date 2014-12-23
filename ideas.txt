@@ -1,17 +1,89 @@
+obj: any type. Some data to store in the HashMap
+aabb: {x:num, y:num, w:num, h:num}. Stores the AABB of an object
+vec: {x:num, y:num}. Stores the position of a point in space
+
+=================================================================
+
+
+
 var shm = new SpatialHashMap(cellSize);
 
-shm.add(dim, [obj]);
+
+
+
+shm.add(aabb, obj);
     Add an object to the hashmap
-    dim: {x, y, w, h}
-    obj: Obj | undefined: add dim itself
 
-shm.moveBy(vector, obj)
+shm.moveBy(vec, obj)
     Move an object by a given vector
-    vector: {x, y}
-
-shm.move, shm.moveTo (obj, pos)
+    
+shm.move, shm.moveTo (vec, obj)
     Move an object to a given position
-    pos: {x, y}
 
-shm.remove(obj, [dim])
-    Remove an object
+shm.remove(obj)
+    Remove an objectobj
+
+
+
+
+shm.getAABB(Object)
+    Get an object's AABB
+    
+shm.getAABBs(Objects)
+    Get AABBs for multiple objects
+    
+
+
+shm.cellForVector(Vector)
+    Get the cell a Vector is in
+    
+shm.cellsForAABB(AABB)
+    Get the cells that a AABB overlaps
+    
+shm.cellsForAABBs(AABBs)
+    Get the cells that multiple AABBs overlap
+    
+shm.cellsForObject(Object)
+    Get the cells that an object overlaps
+    
+shm.cellsForObjects(Objects)
+    Get the cells that multiple objects overlap
+    
+
+shm.objectsForCell(Cell)
+    Get the objects in the cell
+    
+shm.objectsForCells(Cells)
+    Get the objects in multiple cells
+    
+shm.objectsForObject(Object)
+    Get the objects an object may collide with
+    
+shm.objectsForObjects(Objects)
+    Get the objects multiple objects may collide with
+    
+shm.objectsForAABB(AABB)
+    Get the objects a AABB may collide with
+    
+shm.objectsForAABBs(AABBs)
+    Get the objects multiple AABBs may collide with
+    
+
+
+shm.AABBsForCell(Cell)
+    Get the AABBs iin the cell
+    
+shm.AABBsForCells(Cells)
+    Get the AABBs in multiple cells
+    
+shm.AABBsForObject(Object)
+    Get the AABBs an object may collide with
+    
+shm.AABBsForObjects(Objects)
+    Get the AABBs multiple objects may collide with
+    
+shm.AABBsForAABB(AABB)
+    Get the AABBs an AABB may collide with
+    
+shm.AABBsForAABBs(AABBs)
+    Get the AABBs multiple AABBs may collide with
