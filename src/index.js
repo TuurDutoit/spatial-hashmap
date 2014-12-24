@@ -48,6 +48,19 @@
      * Private API
      */
     
+    var Key = function(cell) {
+        return cell.x + ":" + cell.y;
+    }
+    
+    var Keys = function(cells) {
+        var result = [];
+        for(var i = 0, len = cells.length; i < len; i++) {
+            result.push(this.key(cells[i]));
+        }
+        
+        return result;
+    }
+    
     var cellInArray = function(arr, item) {
         for(var i = 0, len = arr.length; i < len; i++) {
             if(arr[i].x === item.x && arr[i].y === item.y) {
@@ -59,17 +72,19 @@
     }
     
     var removeFromCell = function(grid, cell, obj) {
-        var objectsInCell = grid.Get(cell);
+        var key = Key(cell);
+        var objectsInCell = grid[key] || [];
         var index = objectsInCell.indexOf(obj);
         
         if(index > -1) {
-            objectsInCell = objectsInCell.splice(index, 1);
+            grid[key] = objectsInCell.splice(index, 1);
         }
     }
     
     var addToCell = function(grid, cell, obj) {
-        var objectsInCell = grid.Get(cell);
-        
+        var key = Key(cell);
+        var objectsInCell = grid[key];
+        if(!objectsInCell) {objectsInCell = grid[key] = [];}
         objectsInCell.push(obj);
     }
     
@@ -142,7 +157,7 @@
     
     function SpatialHashMap(cellSize) {
         this.cellSize = cellSize;
-        this.grid = new HashMap();
+        this.grid = {};
         this.objects = new HashMap();
         
         return this;

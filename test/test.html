@@ -13,6 +13,52 @@
         <script type="text/javascript" src="SAT.min.js"></script>
     </head>
     <body>
+        <script type="text/javascript">
+            /**
+             * Utils
+             */
 
+            var r = function() {
+                return Math.random() * 3000;
+            }
+            var s = function() {
+                return Math.random() * 500;
+            }
+            
+            
+            /**
+             * SHM
+             */
+            
+            var shm = new SpatialHashMap(25);
+
+            
+            /**
+             * Test functions
+             */
+
+            var add = function(num) {
+                console.log("Generating objects...");
+                var objects = [];
+                for(var i = 0; i < num; i++) {
+                    objects.push({
+                        AABB: {x:r(), y:r(), w:s(), h:s()},
+                        obj: i
+                    });
+                }
+                
+                console.log("Done.");
+                console.log("Adding objects...");
+                
+                var start = performance.now();
+                for(var i = 0, len = objects.length; i < len; i++) {
+                    shm.add(objects[i].AABB, objects[i].obj);
+                }
+                var end = performance.now();
+                
+                console.log((end-start) + "ms");
+                console.log("Done.");
+            }
+        </script>
     </body>
 </html>
