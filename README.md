@@ -8,6 +8,15 @@ Issues and bugs in the [bug tracker](https://github.com/TuurDutoit/spatial-hashm
 
 __Note: These docs are out of date. I added a lot of methods and changed quite a few, but I haven't had the time to update the docs. Sorry for that :(. However, I will probably update the docs in the next few days, and in the meantime you can use the source (which is very clear, I think).__
 
+__Note: Performance is OK, I think (I didn't test thoroughly, and on a quite slow laptop):  
+Adding 100:       10-30ms  
+Adding 1,000:     60-80ms  
+Adding 10,000:    650ms  
+Adding 100,000:   7-9s  
+Adding 1,000,000: Crashes :(  
+Unfortunately, Chrome crashed after about half a minute when adding 1M items  
+If you want a more stable and faster hashmap, use [RBush](https://github.com/mourner/rbush) ([NPM](https://www.npmjs.com/package/rbush))__
+
 
 
 ## Installation
